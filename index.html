@@ -1,4 +1,4 @@
-
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,5 +54,107 @@
     <audio src="Dike.mp3" autoplay loop controls>
         Your browser does not support audio playback.
     </audio>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ఓం శ్రీ గణేశాయ నమః</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Georgia, serif;
+        }
+
+        body {
+            background: #000;
+        }
+
+        .elephant-image {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        h1 {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: max-content;
+            max-width: 95%;
+            margin: 0;
+            padding: 12px 18px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.55);
+            color: white;
+            text-align: center;
+            font-size: clamp(18px, 4vw, 32px);
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background image -->
+    <img
+        class="elephant-image"
+        src="./Zolt.jpg"
+        alt="Elephant"
+    >
+
+    <!-- Telugu heading -->
+    <h1>ఓం శ్రీ గణేశాయ నమః</h1>
+
+    <!-- Background music: no visible controls -->
+    <audio id="backgroundMusic" autoplay loop preload="auto">
+        <source src="./Dike.mp3" type="audio/mpeg">
+        Your browser does not support audio playback.
+    </audio>
+
+    <script>
+        const music = document.getElementById("backgroundMusic");
+
+        music.volume = 1.0;
+
+        async function playBackgroundMusic() {
+            try {
+                await music.play();
+                console.log("Background music started.");
+            } catch (error) {
+                console.warn(
+                    "Automatic playback was blocked by the browser.",
+                    error
+                );
+            }
+        }
+
+        // Attempt autoplay when the page loads.
+        document.addEventListener("DOMContentLoaded", () => {
+            playBackgroundMusic();
+        });
+
+        // Retry when the page finishes loading.
+        window.addEventListener("load", () => {
+            playBackgroundMusic();
+        });
+    </script>
+
 </body>
 </html>
