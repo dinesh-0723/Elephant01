@@ -62,7 +62,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ఓం శ్రీ గణేశాయ నమః</title>
+    <title>Launching Soon</title>
 
     <style>
         * {
@@ -93,19 +93,53 @@
 
         h1 {
             position: fixed;
-            top: 20px;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
             width: max-content;
-            max-width: 95%;
+            max-width: calc(100% - 32px);
             margin: 0;
-            padding: 12px 18px;
-            border-radius: 10px;
-            background: rgba(0, 0, 0, 0.55);
-            color: white;
+            padding: clamp(20px, 5vw, 36px) clamp(24px, 7vw, 64px);
+            border: 1px solid rgba(255, 220, 150, 0.55);
+            border-radius: 18px;
+            background: rgba(12, 10, 7, 0.58);
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.45), inset 0 0 24px rgba(255, 220, 150, 0.08);
+            backdrop-filter: blur(8px);
+            color: #ffe4a8;
             text-align: center;
-            font-size: clamp(18px, 4vw, 32px);
+            font-size: clamp(28px, 8vw, 72px);
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            line-height: 1.15;
+            text-transform: uppercase;
+            text-shadow: 0 0 18px rgba(255, 190, 90, 0.55), 0 3px 12px rgba(0, 0, 0, 0.9);
             z-index: 1;
+            animation: title-glow 3s ease-in-out infinite alternate;
+        }
+
+        h1::after {
+            content: "";
+            display: block;
+            width: 42%;
+            height: 2px;
+            margin: 18px auto 0;
+            background: linear-gradient(90deg, transparent, #ffd27b, transparent);
+        }
+
+        @keyframes title-glow {
+            from {
+                box-shadow: 0 12px 50px rgba(0, 0, 0, 0.45), inset 0 0 24px rgba(255, 220, 150, 0.08);
+            }
+
+            to {
+                box-shadow: 0 12px 60px rgba(0, 0, 0, 0.55), inset 0 0 32px rgba(255, 220, 150, 0.14);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            h1 {
+                animation: none;
+            }
         }
 
     </style>
@@ -116,12 +150,12 @@
     <!-- Background image -->
     <img
         class="elephant-image"
-        src="./Zolt.jpg"
+        src="./Designer_LandScape.png"
         alt="Elephant"
     >
 
     <!-- Telugu heading -->
-    <h1>ఓం శ్రీ గణేశాయ నమః</h1>
+    <h1>Launching Soon</h1>
 
     <!-- Background music: no visible controls -->
     <audio id="backgroundMusic" autoplay loop preload="auto">
