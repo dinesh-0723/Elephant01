@@ -134,9 +134,19 @@
 
         music.volume = 1.0;
 
-        music.play().catch((error) => {
-            console.warn("The browser blocked automatic audio playback.", error);
-        });
+        async function startMusic() {
+            try {
+                await music.play();
+                document.removeEventListener("pointerdown", startMusic);
+                document.removeEventListener("keydown", startMusic);
+            } catch (error) {
+                console.info("Audio will start after a page interaction.", error);
+            }
+        }
+
+        document.addEventListener("pointerdown", startMusic);
+        document.addEventListener("keydown", startMusic);
+        startMusic();
     </script>
 
 </body>
