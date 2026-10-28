@@ -108,24 +108,6 @@
             z-index: 1;
         }
 
-        #musicButton {
-            position: fixed;
-            bottom: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 12px 18px;
-            border: 0;
-            border-radius: 999px;
-            background: rgba(0, 0, 0, 0.72);
-            color: white;
-            font: inherit;
-            cursor: pointer;
-            z-index: 2;
-        }
-
-        #musicButton[hidden] {
-            display: none;
-        }
     </style>
 </head>
 
@@ -141,8 +123,6 @@
     <!-- Telugu heading -->
     <h1>ఓం శ్రీ గణేశాయ నమః</h1>
 
-    <button id="musicButton" type="button">Play background music</button>
-
     <!-- Background music: no visible controls -->
     <audio id="backgroundMusic" autoplay loop preload="auto">
         <source src="./Dike.mp3" type="audio/mpeg">
@@ -151,27 +131,11 @@
 
     <script>
         const music = document.getElementById("backgroundMusic");
-        const musicButton = document.getElementById("musicButton");
 
         music.volume = 1.0;
 
-        async function playBackgroundMusic() {
-            try {
-                await music.play();
-            } catch (error) {
-                musicButton.hidden = false;
-                console.info("Playback needs user interaction in this browser.", error);
-            }
-        }
-
-        music.addEventListener("playing", () => {
-            musicButton.hidden = true;
-        });
-
-        musicButton.addEventListener("click", playBackgroundMusic);
-
-        document.addEventListener("DOMContentLoaded", () => {
-            playBackgroundMusic();
+        music.play().catch((error) => {
+            console.warn("The browser blocked automatic audio playback.", error);
         });
     </script>
 
