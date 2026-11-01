@@ -1,27 +1,52 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Launching Soon</title>
 
-    <!-- FAVICON CONFIGURATION -->
+    <!-- ================================= -->
+    <!-- FAVICON FOR ALL BROWSERS -->
+    <!-- ================================= -->
+
+    <!-- Chrome, Edge, Firefox -->
     <link rel="icon" type="image/png" sizes="16x16"
           href="./favicon-16x16.png">
 
     <link rel="icon" type="image/png" sizes="32x32"
           href="./favicon-32x32.png">
 
+    <link rel="icon" type="image/png" sizes="48x48"
+          href="./favicon-48x48.png">
+
+    <!-- Android Chrome -->
+    <link rel="icon" type="image/png" sizes="192x192"
+          href="./android-chrome-192x192.png">
+
+    <!-- Apple iPhone and iPad -->
     <link rel="apple-touch-icon" sizes="180x180"
           href="./apple-touch-icon.png">
 
+    <!-- Web App Manifest -->
     <link rel="manifest" href="./site.webmanifest">
 
+    <!-- Browser Theme Color -->
     <meta name="theme-color" content="#000000">
 
+    <!-- Mobile Browser Compatibility -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-web-app-capable"
+          content="yes">
+
+    <meta name="apple-mobile-web-app-title"
+          content="Launching Soon">
+
     <style>
+
         * {
             box-sizing: border-box;
         }
@@ -40,6 +65,7 @@
         }
 
         /* BACKGROUND IMAGE */
+
         .elephant-image {
             position: fixed;
             inset: 0;
@@ -50,10 +76,13 @@
         }
 
         /* LAUNCHING SOON HEADING */
+
         h1 {
             position: fixed;
+
             top: clamp(22px, 5vw, 48px);
             right: clamp(20px, 5vw, 56px);
+
             margin: 0;
 
             background: linear-gradient(
@@ -68,11 +97,19 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
 
-            font-family: "Segoe Script", "Brush Script MT", cursive;
+            font-family:
+                "Segoe Script",
+                "Brush Script MT",
+                cursive;
+
             font-size: clamp(22px, 4vw, 42px);
+
+            font-style: normal;
             font-weight: 600;
+
             letter-spacing: 0.01em;
             line-height: 1.2;
+
             text-align: right;
 
             text-shadow:
@@ -82,11 +119,16 @@
             z-index: 1;
         }
 
+        /* DECORATIVE UNDERLINE */
+
         h1::after {
             content: "";
+
             display: block;
+
             width: 58%;
             height: 2px;
+
             margin: 10px 0 0 auto;
 
             background: linear-gradient(
@@ -95,25 +137,36 @@
                 #e1e4eb
             );
 
-            box-shadow: 0 0 10px rgba(220, 228, 240, 0.55);
+            box-shadow:
+                0 0 10px rgba(220, 228, 240, 0.55);
         }
 
     </style>
+
 </head>
 
 <body>
 
+    <!-- ================================= -->
     <!-- BACKGROUND IMAGE -->
+    <!-- ================================= -->
+
     <img
         class="elephant-image"
         src="./Designer_LandScape.png"
         alt="Elephant"
     >
 
-    <!-- HEADING -->
+    <!-- ================================= -->
+    <!-- WEBSITE HEADING -->
+    <!-- ================================= -->
+
     <h1>Launching Soon</h1>
 
+    <!-- ================================= -->
     <!-- BACKGROUND MUSIC -->
+    <!-- ================================= -->
+
     <audio
         id="backgroundMusic"
         autoplay
@@ -121,16 +174,26 @@
         preload="auto"
     >
         <source src="./Dike.mp3" type="audio/mpeg">
+
         Your browser does not support audio playback.
+
     </audio>
 
+    <!-- ================================= -->
+    <!-- MUSIC AUTOPLAY SCRIPT -->
+    <!-- ================================= -->
+
     <script>
-        const music = document.getElementById("backgroundMusic");
+
+        const music =
+            document.getElementById("backgroundMusic");
 
         music.volume = 1.0;
 
         async function startMusic() {
+
             try {
+
                 await music.play();
 
                 document.removeEventListener(
@@ -144,16 +207,27 @@
                 );
 
             } catch (error) {
+
                 console.info(
-                    "Audio will start after user interaction."
+                    "Music will start after user interaction."
                 );
+
             }
+
         }
 
-        document.addEventListener("pointerdown", startMusic);
-        document.addEventListener("keydown", startMusic);
+        document.addEventListener(
+            "pointerdown",
+            startMusic
+        );
+
+        document.addEventListener(
+            "keydown",
+            startMusic
+        );
 
         startMusic();
+
     </script>
 
 </body>
